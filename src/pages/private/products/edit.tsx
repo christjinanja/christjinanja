@@ -10,17 +10,17 @@ import { useStore } from '../../../store/rootStore';
 
 // Define the validation schema using Yup
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Product name is required'),
-  category_id: Yup.string().required('Category is required'),
-  price: Yup.number().required('Price is required').min(0, 'Minimum price is 0'),
-  stock: Yup.number().required('Email is required').min(0, 'Minimum stock is 0'),
-  image: Yup.mixed().test('fileType', 'Unsupported file format', (value:any) => {
+  name: Yup.string().required('Le nom du produit est requis'),
+  category_id: Yup.string().required('La catégorie est requise'),
+  price: Yup.number().required('Le prix est requis').min(0, 'Le prix minimum est 0'),
+  stock: Yup.number().required('Le stock est requis').min(0, 'Le stock minimum est 0'),
+  image: Yup.mixed().test('fileType', 'Format de fichier non pris en charge', (value:any) => {
     if (value !== ""){
       const supportedFormats = ['image/jpeg', 'image/png', 'image/jpg'];
       return supportedFormats.includes(value.type);
     }
     return true; // skip this
-  }).test('fileSize', 'File size is too large (max: 5000KB)', (value:any) => {
+  }).test('fileSize', 'La taille du fichier est trop grande (max : 5000 Ko)', (value:any) => {
     if (value !== "") {
       return value.size <= 5000000; // 5000KB in bytes
     }
@@ -101,7 +101,7 @@ const ProductEdit = () => {
   
   return (
     <Box sx={{ width: '100%' }}>
-    <h4>Edit</h4>
+    <h4>Modifier</h4>
     <form onSubmit={handleSubmit(onSubmit)}>
     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid item xs={6}>
@@ -113,7 +113,7 @@ const ProductEdit = () => {
               {...field}
               fullWidth
               id="name"
-              label="Product name"
+              label="Nom du produit"
               variant="filled"
               error={!!errors.name}
               helperText={errors.name?.message}
@@ -154,7 +154,7 @@ const ProductEdit = () => {
               {...field}
               fullWidth
               id="price"
-              label="Price"
+              label="Prix"
               variant="filled"
               error={!!errors.price}
               helperText={errors.price?.message}
@@ -183,7 +183,7 @@ const ProductEdit = () => {
         {imageUrl && <Card sx={{ maxWidth: 345, my: 5 }}>
         <CardMedia
           component="img"
-          alt="green iguana"
+          alt="produit"
           height="auto"
           image={imageUrl ?? ""}
         />
@@ -211,10 +211,10 @@ const ProductEdit = () => {
       </Grid>
     </Grid>
     <Button sx={{ mt: 2 }} type="submit" variant="contained" color="success">
-      Save
+      Enregistrer
     </Button>
     <Button sx={{ mt: 2, ml: 2 }} variant="contained" onClick={() => navigate(-1)}>
-      Back
+      Retour
     </Button>
   </form>
 </Box>

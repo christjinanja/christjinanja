@@ -25,10 +25,10 @@ export default class OrderStore {
             ),
         },
         { field: 'id', headerName: 'Id', width: 100 },
-        { field: 'order_number', headerName: 'Order Name', width: 200 },
-        { field: 'customer_name', headerName: 'Customer Name', width: 150 },
-        { field: 'quantity', headerName: 'Quantity', width: 200 },
-        { field: 'price', headerName: 'Price', width: 200 },
+        { field: 'order_number', headerName: 'Nom de la commande', width: 200 },
+        { field: 'customer_name', headerName: 'Nom du client', width: 150 },
+        { field: 'quantity', headerName: 'Quantité', width: 200 },
+        { field: 'price', headerName: 'Prix', width: 200 },
     ];
 
 
@@ -79,7 +79,7 @@ export default class OrderStore {
             })
             const data = await response.json();
             if (data.error) {
-                this.rootStore.handleError(response.status, `HTTP Request failed: ${response.status} ${response.statusText}`, data);
+                this.rootStore.handleError(response.status, `Échec de la requête HTTP: ${response.status} ${response.statusText}`, data);
                 return Promise.reject(data)
             } else {
                 this.setRowData(data.data.orders);

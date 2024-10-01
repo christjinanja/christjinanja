@@ -29,20 +29,20 @@ const AllItemList:React.FC<any> = ({editMode}) => {
   const invoiceTotal = invoiceSubtotal;
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+      <Table sx={{ minWidth: 700 }} aria-label="tableau récapitulatif">
         <TableHead>
           <TableRow>
             <TableCell align="left" colSpan={5}>
-              Details
+              Détails
             </TableCell>
-            <TableCell align="right">Price</TableCell>
+            <TableCell align="right">Prix</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>#</TableCell>
-            <TableCell>Product Name</TableCell>
-            <TableCell align="right">Qty.</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Discount (%)</TableCell>
+            <TableCell>Nom du produit</TableCell>
+            <TableCell align="right">Quantité</TableCell>
+            <TableCell align="right">Prix</TableCell>
+            <TableCell align="right">Réduction (%)</TableCell>
             <TableCell align="right">Total</TableCell>
           </TableRow>
         </TableHead>
@@ -63,7 +63,7 @@ const AllItemList:React.FC<any> = ({editMode}) => {
           ))}
           <TableRow>
             <TableCell rowSpan={3} />
-            <TableCell colSpan={2}>Subtotal</TableCell>
+            <TableCell colSpan={2}>Sous-total</TableCell>
             <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
           </TableRow>
           <TableRow>

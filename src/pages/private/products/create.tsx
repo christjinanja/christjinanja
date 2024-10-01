@@ -10,14 +10,14 @@ import { useStore } from '../../../store/rootStore';
 
 // Define the validation schema using Yup
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Product name is required'),
-  category_id: Yup.string().required('Category is required'),
-  price: Yup.number().required('Price is required').min(0, 'Minimum price is 0'),
-  stock: Yup.number().required('Email is required').min(0, 'Minimum stock is 0'),
-  image: Yup.mixed().test('required', 'Image is required', (value:any) => {
+  name: Yup.string().required('Le nom du produit est requis'),
+  category_id: Yup.string().required('La catégorie est requise'),
+  price: Yup.number().required('Le prix est requis').min(0, 'Le prix minimum est 0'),
+  stock: Yup.number().required('Le stock est requis').min(0, 'Le stock minimum est 0'),
+  image: Yup.mixed().test('required', 'L\'image est requise', (value:any) => {
     if (!value) return false; // No file is still valid
     return true
-  }).test('fileType', 'Unsupported file format', (value:any) => {
+  }).test('fileType', 'Format de fichier non pris en charge', (value:any) => {
     if (!value) return true; // No file is still valid
     const supportedFormats = ['image/jpeg', 'image/png', 'image/jpg'];
     return supportedFormats.includes(value.type);
@@ -81,7 +81,7 @@ const ProductCreate = () => {
   }, [])
   return (
     <Box sx={{ width: '100%' }}>
-    <h4>Create</h4>
+    <h4>Créer</h4>
   <form onSubmit={handleSubmit(onSubmit)}>
     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid item xs={6}>
@@ -93,7 +93,7 @@ const ProductCreate = () => {
               {...field}
               fullWidth
               id="name"
-              label="Product name"
+              label="Nom du produit"
               variant="filled"
               error={!!errors.name}
               helperText={errors.name?.message}
@@ -111,7 +111,7 @@ const ProductCreate = () => {
               fullWidth
               select
               id="category_id"
-              label="Category"
+              label="Catégorie"
               variant="filled"
               error={!!errors.category_id}
               helperText={errors.category_id?.message}
@@ -134,7 +134,7 @@ const ProductCreate = () => {
               {...field}
               fullWidth
               id="price"
-              label="Price"
+              label="Prix"
               variant="filled"
               error={!!errors.price}
               helperText={errors.price?.message}
@@ -176,7 +176,7 @@ const ProductCreate = () => {
               fullWidth
               id="image"
               type='file'
-              label="Zip code"
+              label="Image"
               variant="filled"
               focused
               onChange={(e: any) => {
@@ -191,10 +191,10 @@ const ProductCreate = () => {
       </Grid>
     </Grid>
     <Button sx={{ mt: 2 }} type="submit" variant="contained" color="success">
-      Save
+      Enregistrer
     </Button>
     <Button sx={{ mt: 2, ml: 2 }} variant="contained" onClick={() => navigate(-1)}>
-      Back
+      retour
     </Button>
   </form>
 </Box>

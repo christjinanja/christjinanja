@@ -56,7 +56,7 @@ const Login = () => {
             flexDirection: 'column',
             alignItems: 'center',
           }}>
-            <h1>Login</h1>
+            <h1>Connectez vous</h1>
             <Controller
               name="email"
               control={control}
@@ -77,7 +77,7 @@ const Login = () => {
               render={({ field }) => (
                 <TextField
                   fullWidth
-                  label="Password"
+                  label="Mot de passe"
                   type="password"
                   variant="filled"
                   error={!!errors.password}
@@ -87,7 +87,7 @@ const Login = () => {
               )}
             />
             <Button sx={{mt: 3}} variant="contained" color="primary" type="submit" disabled={isSubmitting}>
-              Login
+              Connection
             </Button>
           </div>
           </form>

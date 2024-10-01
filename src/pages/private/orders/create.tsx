@@ -14,9 +14,9 @@ import AllItemsList from './allItemsList';
 // Define the validation schema using Yup
 const validationSchema = Yup.object().shape({
   customer: Yup.object().shape({
-    id: Yup.string().required('Customer is required'),
-    label: Yup.string().required('Customer is required'),
-  }).required('Customer is required')
+    id: Yup.string().required('Le client est requis'),
+    label: Yup.string().required('Le client est requis'),
+  }).required('Le client est requis')
 })
 
 const OrderCreate = () => {
@@ -50,13 +50,13 @@ const OrderCreate = () => {
           message: error?.data[e],
         });
       })
-      setProductsErrorMessage("Please select one products");
+      setProductsErrorMessage("Veuillez sélectionner au moins un produit.");
     }
   }
 
   return (
     <Box sx={{ width: '100%' }}>
-    <h4>Create</h4>
+    <h4>Créer une commande</h4>
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
@@ -65,7 +65,7 @@ const OrderCreate = () => {
             control={control}
             render={({ field }) => (
               <ServerSideAutocomplete
-                label="Select an customer"
+                label="Sélectionner un client"
                 ajaxCallFn={customerStore.getList} 
                 onOptionSelect={(option) => field.onChange(option)}
                 error={errors.customer?.id ?? errors.customer}
@@ -82,10 +82,10 @@ const OrderCreate = () => {
       <AllItemsList editMode={true} />
 
       <Button sx={{ mt: 2 }} type="button" variant="contained" color="success" onClick={() => handleSubmit(onSubmit)()}>
-        Save
+        Sauvegarder
       </Button>
       <Button sx={{ mt: 2, ml: 2 }} variant="contained" onClick={() => navigate(-1)}>
-        Back
+        Retour
       </Button>
   </Box>
   )

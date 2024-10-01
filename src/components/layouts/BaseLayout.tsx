@@ -98,7 +98,7 @@ const BaseLayout = (props: Props) => {
               </Button>
             ))}
              <Button key={"logout"} sx={{ color: '#fff' }} onClick={logout} >
-                Logout
+                Déconnexion
             </Button>
           </Box>
         </Toolbar>

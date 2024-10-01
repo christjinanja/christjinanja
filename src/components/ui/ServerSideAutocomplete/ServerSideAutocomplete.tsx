@@ -29,7 +29,7 @@ const ServerSideAutocomplete: React.FC<ServerSideAutocompleteProps> = ({
         setOptions(response);
        
       } catch (error) {
-        console.error('Error fetching options:', error);
+        console.error('Erreur lors de la récupération des options:', error);
       }
     };
     fetchData();

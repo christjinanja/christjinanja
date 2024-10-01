@@ -10,12 +10,12 @@ import { observer } from 'mobx-react-lite'
 
 const validationSchema = Yup.object().shape({
     product: Yup.object().shape({
-      id: Yup.string().required('Product is required'),
-      label: Yup.string().required('Product is required'),
-    }).required('Product is required'),
+      id: Yup.string().required('Le produit est requis'),
+      label: Yup.string().required('Le produit est requis'),
+    }).required('Le produit est requis'),
     price: Yup.number(),
-    quantity: Yup.number().required('Quantity is required').min(1, 'Minimum quantity is 1'),
-    discount: Yup.number().required('Discount is required').min(0, 'Minimum discount is 0').max(100, 'Max discount is 100'),
+    quantity: Yup.number().required('La quantité est requise').min(1, 'La quantité minimale est de 1'),
+    discount: Yup.number().required('Le rabais est requis').min(0, 'Le rabais minimal est de 0').max(100, 'Le rabais maximal est de 100'),
     total: Yup.number(),
   })
 
@@ -70,7 +70,7 @@ const AddNewItemForm:React.FC<any> = () => {
         control={control}
         render={({ field }) => (
           <ServerSideAutocomplete
-            label="Select a product"
+            label="Sélectionner un produit"
             ajaxCallFn={productStore.getList} 
             onOptionSelect={(option) => {
               field.onChange(option)
@@ -96,7 +96,7 @@ const AddNewItemForm:React.FC<any> = () => {
               {...field}
               fullWidth
               id="price"
-              label="Price"
+              label="Prix"
               variant="filled"
               error={!!errors.price}
               helperText={errors.price?.message}
@@ -117,7 +117,7 @@ const AddNewItemForm:React.FC<any> = () => {
               }}
               fullWidth
               id="quantity"
-              label="Quantity"
+              label="Quantité"
               variant="filled"
               error={!!errors.quantity}
               helperText={errors.quantity?.message}
@@ -138,7 +138,7 @@ const AddNewItemForm:React.FC<any> = () => {
               }}
               fullWidth
               id="discount"
-              label="Discount (%)"
+              label="Réduction (%)"
               variant="filled"
               error={!!errors.discount}
               helperText={errors.discount?.message}
@@ -169,7 +169,7 @@ const AddNewItemForm:React.FC<any> = () => {
     </Grid>
     <Grid item xs={1}>
         <Button sx={{ mt: 2 }} type="submit" variant="contained" color="secondary">
-            Add
+            Ajouter
         </Button>
     </Grid>
   </Grid>

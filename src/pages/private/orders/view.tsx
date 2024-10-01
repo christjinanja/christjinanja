@@ -32,7 +32,7 @@ const OrderView: React.FC<any> = () => {
       }
     } catch (error) {
       // Handle errors, e.g., show an error message
-      console.error('Error while fetching data:', error);
+      console.error('Erreur lors de la récupération des données :', error);
     }
   }
   useEffect(() => {
@@ -47,12 +47,12 @@ const OrderView: React.FC<any> = () => {
   return (
     <Box sx={{ width: '100%' }}>
         <Box sx={{ px: 5,  py: 3  }} ref={printRef}>
-          <h4>Order Details</h4>
+          <h4>Détails de la Commande</h4>
           
           <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{mb: 2}}>
             <Grid item xs={6}>
             <TextField
-              label="Order ID" 
+              label="ID de la Commande" 
               variant="standard" 
               value={editData?.order_number}
               focused
@@ -64,7 +64,7 @@ const OrderView: React.FC<any> = () => {
             </Grid>
             <Grid item xs={6}>
             <TextField
-              label="Order Date" 
+              label="Date de la Commande" 
               variant="standard" 
               value={editData?.created_at}
               focused
@@ -78,7 +78,7 @@ const OrderView: React.FC<any> = () => {
           <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{mb: 2}}>
             <Grid item xs={3}>
             <TextField
-              label="Customer Name" 
+              label="Nom du Client" 
               variant="standard" 
               value={editData?.customer?.first_name +" "+editData?.customer?.last_name}
               focused
@@ -90,7 +90,7 @@ const OrderView: React.FC<any> = () => {
             </Grid>
             <Grid item xs={3}>
             <TextField
-              label="Customer Email" 
+              label="Email du Client" 
               variant="standard" 
               value={editData?.customer.email}
               focused
@@ -102,7 +102,7 @@ const OrderView: React.FC<any> = () => {
             </Grid>
             <Grid item xs={3}>
             <TextField
-              label="Customer Phone" 
+              label="Téléphone du Client" 
               variant="standard" 
               value={editData?.customer.phone_number}
               focused
@@ -114,7 +114,7 @@ const OrderView: React.FC<any> = () => {
             </Grid>
             <Grid item xs={3}>
             <TextField
-              label="Customer Zipcode" 
+              label="Code Postal du Client" 
               variant="standard" 
               value={editData?.customer.zip_code}
               focused
@@ -129,10 +129,10 @@ const OrderView: React.FC<any> = () => {
           <AllItemList editMode={false} />
         </Box>
       <Button sx={{ mt: 2 , ml: 5}} type="button" variant="contained" color="success" onClick={handlePrint}>
-        Print
+        Imprimer
       </Button>
       <Button sx={{ mt: 2, ml: 2 }} variant="contained" onClick={() => navigate(-1)}>
-        Back
+        Retour
       </Button>
   </Box>
   )

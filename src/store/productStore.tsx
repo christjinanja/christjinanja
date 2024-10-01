@@ -26,9 +26,9 @@ export default class ProductStore {
             ),
         },
         { field: 'id', headerName: 'Id', width: 100 },
-        { field: 'name', headerName: 'Product Name', width: 150 },
-        { field: 'category', headerName: 'Category', width: 150 },
-        { field: 'price', headerName: 'Price', width: 200 },
+        { field: 'name', headerName: 'Nom du produit', width: 150 },
+        { field: 'category', headerName: 'Catégorie', width: 150 },
+        { field: 'price', headerName: 'Prix', width: 200 },
         { field: 'stock', headerName: 'Stock', width: 200 },
     ];
 
@@ -63,14 +63,14 @@ export default class ProductStore {
             })
             const data = await response.json();
             if (data.error) {
-                this.rootStore.handleError(response.status, `HTTP Request failed: ${response.status} ${response.statusText}`, data);
+                this.rootStore.handleError(response.status, `Échec de la requête HTTP: ${response.status} ${response.statusText}`, data);
                 return Promise.reject(data)
             } else {
                 this.setRowData(data.data.products);
                 return Promise.resolve(data)
             }
         } catch (error: any) {
-            this.rootStore.handleError(419, "Something went wrong!", error)
+            this.rootStore.handleError(419, "Quelque chose a mal tourné !", error)
         }
     }
 
@@ -86,13 +86,13 @@ export default class ProductStore {
             })
             const data = await response.json();
             if (data.error) {
-                this.rootStore.handleError(response.status, `HTTP Request failed: ${response.status} ${response.statusText}`, data);
+                this.rootStore.handleError(response.status, `Échec de la requête HTTP: ${response.status} ${response.statusText}`, data);
                 return Promise.reject(data)
             } else {
                 return Promise.resolve(data)
             }
         } catch (error: any) {
-            this.rootStore.handleError(419, "Something went wrong!", error)
+            this.rootStore.handleError(419, "Quelque chose a mal tourné !", error)
         }
     }
 
@@ -116,7 +116,7 @@ export default class ProductStore {
                 return Promise.resolve(data)
             }
         } catch (error: any) {
-            this.rootStore.handleError(419, "Something went wrong!", error)
+            this.rootStore.handleError(419, "Quelque chose a mal tourné !", error)
         }
     }
 
@@ -141,7 +141,7 @@ export default class ProductStore {
         return Promise.resolve(data)
       }
     } catch (error: any) {
-      this.rootStore.handleError(419, "Something went wrong!", error)
+      this.rootStore.handleError(419, "Quelque chose a mal tourné !", error)
     }
   }
 
@@ -166,7 +166,7 @@ export default class ProductStore {
         return Promise.resolve(data)
       }
     } catch (error: any) {
-      this.rootStore.handleError(419, "Something went wrong!", error)
+      this.rootStore.handleError(419, "Quelque chose a mal tourné !", error)
     }
   }
 
@@ -192,7 +192,7 @@ export default class ProductStore {
         return Promise.resolve(data)
       }
     } catch (error: any) {
-      this.rootStore.handleError(419, "Something went wrong!", error)
+      this.rootStore.handleError(419, "Quelque chose a mal tourné !", error)
     }
   }
 
@@ -200,7 +200,7 @@ export default class ProductStore {
    deleteDialog = async (params: any) => {
     this.rootStore.dialogStore.openDialog({
         confirmFn: () => this.deleteData(params.row.id),
-        dialogText: "Are you sure you want to delete this item ?"
+        dialogText: "Êtes-vous sûr de vouloir supprimer cet élément ?"
       })
   }
 
@@ -218,13 +218,13 @@ export default class ProductStore {
           })
           const data = await response.json();
           if (data.error) {
-              this.rootStore.handleError(response.status, `HTTP Request failed: ${response.status} ${response.statusText}`, data);
+              this.rootStore.handleError(response.status, `Échec de la requête HTTP: ${response.status} ${response.statusText}`, data);
               return Promise.reject(data)
           } else {
               return Promise.resolve(data.data.products)
           }
       } catch (error: any) {
-          this.rootStore.handleError(419, "Something went wrong!", error)
+          this.rootStore.handleError(419, "Quelque chose a mal tourné !", error)
       }
   }
 }

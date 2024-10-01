@@ -26,11 +26,11 @@ export default class CustomerStore {
             ),
         },
         { field: 'id', headerName: 'Id', width: 100 },
-        { field: 'first_name', headerName: 'First Name', width: 150 },
-        { field: 'last_name', headerName: 'Last Name', width: 150 },
+        { field: 'first_name', headerName: 'Prénom', width: 150 },
+        { field: 'last_name', headerName: 'Nom', width: 150 },
         { field: 'email', headerName: 'Email', width: 200 },
-        { field: 'phone_number', headerName: 'Phone Number', width: 200 },
-        { field: 'zip_code', headerName: 'Zip Code', width: 150 },
+        { field: 'phone_number', headerName: 'Numéro de téléphone', width: 200 },
+        { field: 'zip_code', headerName: 'Code postal', width: 150 },
     ];
 
 
@@ -63,7 +63,7 @@ export default class CustomerStore {
             })
             const data = await response.json();
             if (data.error) {
-                this.rootStore.handleError(response.status, `HTTP Request failed: ${response.status} ${response.statusText}`, data);
+                this.rootStore.handleError(response.status, `Échec de la requête HTTP: ${response.status} ${response.statusText}`, data);
                 return Promise.reject(data)
             } else {
                 this.setRowData(data.data.customers);

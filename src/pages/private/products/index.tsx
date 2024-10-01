@@ -7,7 +7,7 @@ const Products = () => {
 
   return (
     <>
-    <h2>Products</h2>
+    <h2>Produits</h2>
     <Box sx={{mt:2}}>
         <Outlet />
     </Box>

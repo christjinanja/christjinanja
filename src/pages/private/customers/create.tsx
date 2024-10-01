@@ -8,17 +8,17 @@ import { useNavigate } from 'react-router-dom'
 import { useStore } from '../../../store/rootStore';
 
 
-// Define the validation schema using Yup
+// Définir le schéma de validation avec Yup
 const validationSchema = Yup.object().shape({
-  first_name: Yup.string().required('First name is required'),
-  last_name: Yup.string().required('Last name is required'),
-  email: Yup.string().email('Invalid email address').required('Email is required'),
-  phone_number: Yup.string().required('Phone number is required')
-    .min(10, 'Phone number must be 10 charecter')
-    .max(10, 'Phone number must be 10 charecter'),
-  zip_code: Yup.string().required('Zipcode is required')
-    .min(6, 'Zipcode must be 6 charecter')
-    .max(6, 'Zipcode must be 6 charecter'),
+  first_name: Yup.string().required('Le prénom est obligatoire'),
+  last_name: Yup.string().required('Le nom est obligatoire'),
+  email: Yup.string().email('Adresse email invalide ').required('L\'email est obligatoire'),
+  phone_number: Yup.string().required('Le numéro de téléphone est obligatoire')
+    .min(10, 'Le numéro de téléphone doit comporter 10 caractères')
+    .max(10, 'Le numéro de téléphone doit comporter 10 caractères'),
+  zip_code: Yup.string().required('Le code postal est obligatoire')
+    .min(6, 'Le code postal doit comporter 6 caractères')
+    .max(6, 'Le code postal doit comporter 6 caractères'),
 })
 
 
@@ -48,7 +48,7 @@ const CustomerCreate = () => {
     } catch (error:any) {
       Object.keys(error?.data).map((e:any) => {
         setError(e, {
-          type: 'manual', // Use 'manual' for manually triggered errors
+          type: 'manual', // Utiliser 'manual' pour les erreurs déclenchées manuellement
           message: error?.data[e],
         });
       })
@@ -59,7 +59,7 @@ const CustomerCreate = () => {
   
   return (
     <Box sx={{ width: '100%' }}>
-    <h4>Create</h4>
+    <h4>Ajouter</h4>
   <form onSubmit={handleSubmit(onSubmit)}>
     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid item xs={6}>
@@ -71,7 +71,7 @@ const CustomerCreate = () => {
               {...field}
               fullWidth
               id="first_name"
-              label="First name"
+              label="Prénom"
               variant="filled"
               error={!!errors.first_name}
               helperText={errors.first_name?.message}
@@ -88,7 +88,7 @@ const CustomerCreate = () => {
               {...field}
               fullWidth
               id="last_name"
-              label="Last name"
+              label="Nom"
               variant="filled"
               error={!!errors.last_name}
               helperText={errors.last_name?.message}
@@ -122,7 +122,7 @@ const CustomerCreate = () => {
               {...field}
               fullWidth
               id="phone_number"
-              label="Phone number"
+              label="Numéro de téléphone"
               variant="filled"
               error={!!errors.phone_number}
               helperText={errors.phone_number?.message}
@@ -139,7 +139,7 @@ const CustomerCreate = () => {
               {...field}
               fullWidth
               id="zip_code"
-              label="Zip code"
+              label="Code postal"
               variant="filled"
               error={!!errors.zip_code}
               helperText={errors.zip_code?.message}
@@ -149,10 +149,10 @@ const CustomerCreate = () => {
       </Grid>
     </Grid>
     <Button sx={{ mt: 2 }} type="submit" variant="contained" color="success">
-      Save
+      Enregistrer
     </Button>
     <Button sx={{ mt: 2, ml: 2 }} variant="contained" onClick={() => navigate(-1)}>
-      Back
+      Retour
     </Button>
   </form>
 </Box>

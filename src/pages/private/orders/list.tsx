@@ -25,7 +25,7 @@ const OrderList = () => {
 
     return (
         <div style={{ height: 500, width: '100%' }}>
-            <Button variant="contained" sx={{ mb: 2 }} component={Link} to="create">Create</Button>
+            <Button variant="contained" sx={{ mb: 2 }} component={Link} to="create">Créer</Button>
             <DataGrid
                 rows={orderStore.rowData}
                 columns={orderStore.columns}

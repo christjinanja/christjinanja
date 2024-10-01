@@ -35,12 +35,12 @@ const AppDialog = () => {
       </IconButton>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          Are You sure ?
+        Êtes-vous sûr ?
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => confirmAction()} style={{ backgroundColor: '#25a325eb', color: 'white' }} variant="contained">Confirm</Button>
-        <Button style={{ backgroundColor: '#e63535f0', color: 'white' }} variant="contained" onClick={() => closeDialog()}>Cancel</Button>
+        <Button onClick={() => confirmAction()} style={{ backgroundColor: '#25a325eb', color: 'white' }} variant="contained">Confirmer</Button>
+        <Button style={{ backgroundColor: '#e63535f0', color: 'white' }} variant="contained" onClick={() => closeDialog()}>Annuler</Button>
       </DialogActions>
     </Dialog>
   )

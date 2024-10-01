@@ -7,7 +7,7 @@ const Customers = () => {
 
   return (
     <>
-    <h2>Customers</h2>
+    <h2>CLients</h2>
     <Box sx={{mt:2}}>
         <Outlet />
     </Box>
